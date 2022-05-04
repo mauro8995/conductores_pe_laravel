@@ -2929,7 +2929,7 @@ $canti = 0;
   // ------------------------------------------
 
   function getDrivers(){
-    $rol= Main::where('users.id', '=', auth()->user()->id)
+    $rol= Main::where('users.id', '=', auth()->user()->id) 
       ->where('main.status_user', '=', 'TRUE')
       ->join('rol_main', 'main.id',               '=',   'rol_main.id_main')
       ->join('roles',    'roles.id',              '=',   'rol_main.id_role')
@@ -2939,12 +2939,15 @@ $canti = 0;
       ->first();
 
     $DriverQuery = Customer::query();
-
+    
     $id_office = request()->off_e;
-    if ($id_office) $DriverQuery->Where('user' ,'=', $id_office);
+    if ($id_office){
+      $DriverQuery->Where('user' ,'=', $id_office);
+    } 
 
     $dni = request()->dni;
-    if ($dni) $DriverQuery->Where('dni' ,'=', $dni);
+    // return $dni;
+    if ($dni)  $DriverQuery->Where('dni' ,'=', $dni);
 
     if (isset(request()->phone)){
       $telephone = request()->phone;
@@ -2983,7 +2986,7 @@ $canti = 0;
 
     if ($rol->id == 7){
        $DriverQuery =  $DriverQuery->where('status_system', 'true')
-                       ->Where('created_by', '=', auth()->user()->id)
+                      //  ->Where('created_by', '=', auth()->user()->id)
                        ->with('getfile','getCreate','getCity')
                        ->get();
      } else {
@@ -2991,8 +2994,8 @@ $canti = 0;
      }
 
     $drivers = [];
+    // return response()->json($DriverQuery->get()); 
     foreach ($DriverQuery as $r) {
-
       $action   =  $r->getfile->id ? '<button type="button" class="btn btn-primary fa fa-history" onclick="viewRecord('.$r->getfile->id.','.$r->id_office.','.$r->id.')"></button>' : '-';
 
 

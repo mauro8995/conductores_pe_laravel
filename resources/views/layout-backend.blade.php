@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{  asset('css/style.css')}}" rel="stylesheet" type="text/css">
     <!-- //<script src="http://code.jquery.com/jquery-1.12.1.js"></script> -->
-    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+    {{-- <script src="http://code.responsivevoice.org/responsivevoice.js"></script> --}}
 
     @yield('css')
     <title>@yield('title') | WIN</title>

@@ -1,5 +1,5 @@
 <?php
-  Route::get('/', function(){ return view('errors/mantenimiento'); });//'api\driver\driverController@created');
+  Route::get('/', 'api\driver\driverController@created');
   Route::get('/mantenimientos', function(){ return view('errors/mantenimiento'); }); 
   Route::get('/acceder',  'Auth\LoginController@showLoginForm');
 	Route::get('/home',     'Auth\LoginController@home')->name('home');

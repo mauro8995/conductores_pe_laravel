@@ -65,7 +65,7 @@ return [
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'Ps855spol5',
-            'sslmode'  => 'require',
+            // 'sslmode'  => 'require',
         ],
 
         'sqlsrv' => [
